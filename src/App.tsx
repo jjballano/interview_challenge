@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import {Container, Header, Logo, Link} from './App.styles'
+import { QueryClientProvider, QueryClient } from 'react-query';
+import {
+  Container, SectionTitle, Title, Subtitle,
+} from './App.styles';
+import LastAddedShows from './tvShow/LastAddedShows';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Container>
-      <Header>
-        <Logo src={logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Link
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </Link>
-      </Header>
-    </Container>
+    <QueryClientProvider client={queryClient}>    
+      <Container>
+        <Title>TV Bland</Title>
+        <Subtitle>TV Show and web series database.</Subtitle>
+        <Subtitle>Create personalised schedules. Episode guide, cast, crew and character information.</Subtitle>
+        <SectionTitle>Last Added Shows</SectionTitle>
+        <LastAddedShows></LastAddedShows>
+      </Container>
+    </QueryClientProvider>
   );
 }
 

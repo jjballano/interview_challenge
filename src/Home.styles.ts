@@ -20,7 +20,3 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   
 `;
-
-export const SectionTitle = styled.section`
-
-`

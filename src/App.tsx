@@ -1,21 +1,19 @@
 import { QueryClientProvider, QueryClient } from 'react-query';
-import {
-  Container, SectionTitle, Title, Subtitle,
-} from './App.styles';
-import LastAddedShows from './tvShow/LastAddedShows';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import TvShowInfo from './tvShow/TvShowInfo';
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>    
-      <Container>
-        <Title>TV Bland</Title>
-        <Subtitle>TV Show and web series database.</Subtitle>
-        <Subtitle>Create personalised schedules. Episode guide, cast, crew and character information.</Subtitle>
-        <SectionTitle>Last Added Shows</SectionTitle>
-        <LastAddedShows></LastAddedShows>
-      </Container>
+    <QueryClientProvider client={queryClient}>  
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tvshow" element={<TvShowInfo />} />
+        <Route path="*" element={<main>Not found</main>} /> 
+        {/* We'd need a better 404 error or redirect to home based on requirements */}
+      </Routes>        
     </QueryClientProvider>
   );
 }

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const TvShowList = styled.section`
@@ -7,7 +8,7 @@ export const TvShowList = styled.section`
   gap: 2em;
 `
 
-export const TvShow = styled.article`
+export const TvShow = styled(NavLink)`
   width: 7em;
   display: flex;
   flex-direction: column;
@@ -19,5 +20,7 @@ export const TvShow = styled.article`
     -moz-box-orient: vertical;
     overflow: hidden;
   }
+  text-decoration: none;
+  color: white;
 `
 

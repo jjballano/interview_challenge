@@ -9,8 +9,8 @@ describe('Router', () => {
     expect(screen.getByText(/last added shows/i)).toBeInTheDocument();
   })
 
-  test('redirects to show info when url is /tvshow/**', () => {
-    renderWithProviders(<App></App>, {path: '/tvshow?name=the+show+name'});
+  test('redirects to show info when url is /tvshow/:id', () => {
+    renderWithProviders(<App></App>, {path: '/tvshow/1?name=the+show+name', addRoutes: false});
 
     expect(screen.getByText(/the show name/i)).toBeInTheDocument();
   })

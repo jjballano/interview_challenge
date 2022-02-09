@@ -13,6 +13,8 @@ afterAll(() => server.close());
 
 export const mockGet = (path: string, body: ResponseResolver<RestRequest, RestContext>) => {
   server.use(
-    rest.get<{}, {}, {}>(`${baseUrl}${path}`, body) 
+    rest.get(`${baseUrl}${path}`, body) 
   );
 }
+
+export const clearPreviousMocks = () => server.resetHandlers();

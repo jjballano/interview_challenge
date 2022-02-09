@@ -78,14 +78,17 @@ describe("Last added tv shows", () => {
       }
     );
 
-    renderWithProviders(<LastAddedShows></LastAddedShows>, {queryCache});
+    const viewComponent = <div>This is the show view</div>
+    renderWithProviders(<LastAddedShows></LastAddedShows>, {queryCache, routes: [{path: '/'}, {path: '/tvshow/:id', ui: viewComponent}]});
 
     const image: HTMLImageElement = await screen.findByAltText(/^tv show 1 movie cover$/i);
     userEvent.click(image);
 
     await waitFor(() => {
-      expect(window.location.pathname).toEqual('/tvshow')
-      expect(window.location.search).toEqual('?id=1&name=TV%20show%201')
+      expect(screen.getByText("This is the show view"));
+      // console.log(window.location.href)
+      // expect(window.location.pathname).toEqual('/tvshow/1')
+      // expect(window.location.search).toMatch(/name=TV%20show%201/i)
     })
     
   })

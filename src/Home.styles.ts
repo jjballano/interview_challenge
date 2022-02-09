@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  background-color: #282c34;
   text-align: left;
   min-height: 100vh;
   padding: 1em 2em;

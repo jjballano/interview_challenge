@@ -4,7 +4,7 @@ import { setupServer } from 'msw/node';
 const baseUrl = 'https://api.tvmaze.com'
 const server = setupServer()
 
-beforeAll(() => server.listen());
+beforeAll(() => server.listen({ onUnhandledRequest: "bypass" }));
 // Reset any request handlers that we may add during the tests,
 // so they don't affect other tests.
 afterEach(() => server.resetHandlers());
@@ -16,5 +16,3 @@ export const mockGet = (path: string, body: ResponseResolver<RestRequest, RestCo
     rest.get(`${baseUrl}${path}`, body) 
   );
 }
-
-export const clearPreviousMocks = () => server.resetHandlers();

@@ -1,4 +1,4 @@
-import { ShowInfo } from "../TvMaze.types";
+import { ShowInfo } from "../TvShow.types";
 
 const showInfo = async (id?: string): Promise<ShowInfo | null> => {
   if (!id){

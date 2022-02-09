@@ -4,7 +4,7 @@ import { renderWithProviders } from './test/renderUtils';
 
 describe('Router', () => {
   test('redirects to home when path is /', () => {
-    renderWithProviders(<App></App>, {path: '/'});
+    renderWithProviders(<App></App>, {path: '/', addRoutes: false});
 
     expect(screen.getByText(/last added shows/i)).toBeInTheDocument();
   })
